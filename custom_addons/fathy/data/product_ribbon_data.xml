@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ribbon_fathy_pick" model="product.ribbon">
+        <field name="name">Fathy's Pick</field>
+        <field name="bg_color">#714B67</field>
+        <field name="text_color">#FFFFFF</field>
+        <field name="position">left</field>
+        <field name="style">ribbon</field>
+        <field name="assign">manual</field>
+    </record>
+</odoo>
