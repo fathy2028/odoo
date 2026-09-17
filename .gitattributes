@@ -2,6 +2,7 @@
 # A CRLF shell script fails inside the Linux container with a misleading
 # "no such file or directory" error.
 *.sh            text eol=lf
+odoo-bin        text eol=lf
 Dockerfile      text eol=lf
 docker-compose.yml text eol=lf
 config/*.conf   text eol=lf
