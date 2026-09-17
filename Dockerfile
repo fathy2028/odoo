@@ -73,11 +73,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # wkhtmltopdf with patched Qt (required for correct headers/footers in invoices, quotations, etc.)
+# Published for amd64, arm64 and ppc64el; other architectures fall back to the
+# distribution build, which renders PDFs but ignores headers and footers.
 RUN ARCH="$(dpkg --print-architecture)" \
-    && curl -fsSL -o /tmp/wkhtmltox.deb \
-        "https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_${ARCH}.deb" \
     && apt-get update \
-    && apt-get install -y --no-install-recommends /tmp/wkhtmltox.deb \
+    && if curl -fsSL -o /tmp/wkhtmltox.deb \
+        "https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_${ARCH}.deb"; then \
+        apt-get install -y --no-install-recommends /tmp/wkhtmltox.deb; \
+    else \
+        echo "WARNING: no patched wkhtmltopdf for ${ARCH}, using the distribution package"; \
+        apt-get install -y --no-install-recommends wkhtmltopdf; \
+    fi \
     && rm -rf /tmp/wkhtmltox.deb /var/lib/apt/lists/*
 
 COPY --from=builder /opt/venv /opt/venv
