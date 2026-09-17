@@ -90,7 +90,8 @@ RUN useradd --system --create-home --home-dir /var/lib/odoo --shell /usr/sbin/no
 COPY --chown=odoo:odoo . /opt/odoo
 COPY --chown=odoo:odoo config/odoo.conf /etc/odoo/odoo.conf
 COPY docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Strip CR so the script also runs when the repo was cloned on Windows (CRLF)
+RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 
 USER odoo
 WORKDIR /opt/odoo

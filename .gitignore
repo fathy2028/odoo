@@ -9,6 +9,7 @@ _build/
 !.mailmap
 !.weblate.json
 !.dockerignore
+!.gitattributes
 !.env.example
 # compiled python files
 *.py[co]
