@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Shop categories -->
+    <record id="public_category_electronics" model="product.public.category">
+        <field name="name">Electronics</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="public_category_fashion" model="product.public.category">
+        <field name="name">Fashion</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="public_category_home" model="product.public.category">
+        <field name="name">Home &amp; Kitchen</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <!-- Electronics -->
+    <record id="product_wireless_headphones" model="product.template">
+        <field name="name">Wireless Noise-Cancelling Headphones</field>
+        <field name="type">consu</field>
+        <field name="list_price">249.00</field>
+        <field name="standard_price">140.00</field>
+        <field name="is_published" eval="True"/>
+        <field name="is_fathy_pick" eval="True"/>
+        <field name="website_sequence">10</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_electronics')])]"/>
+        <field name="description_ecommerce" type="html">
+            <p>Over-ear headphones with active noise cancelling and 30 hours of battery life.</p>
+        </field>
+    </record>
+    <record id="product_smart_watch" model="product.template">
+        <field name="name">Smart Watch Pro</field>
+        <field name="type">consu</field>
+        <field name="list_price">199.00</field>
+        <field name="standard_price">110.00</field>
+        <field name="is_published" eval="True"/>
+        <field name="website_sequence">20</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_electronics')])]"/>
+        <field name="description_ecommerce" type="html">
+            <p>Heart-rate tracking, GPS and a bright always-on display.</p>
+        </field>
+    </record>
+
+    <!-- Fashion -->
+    <record id="product_leather_jacket" model="product.template">
+        <field name="name">Classic Leather Jacket</field>
+        <field name="type">consu</field>
+        <field name="list_price">320.00</field>
+        <field name="standard_price">180.00</field>
+        <field name="is_published" eval="True"/>
+        <field name="is_fathy_pick" eval="True"/>
+        <field name="website_sequence">30</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_fashion')])]"/>
+        <field name="description_ecommerce" type="html">
+            <p>Genuine leather jacket with a timeless cut.</p>
+        </field>
+    </record>
+    <record id="product_running_shoes" model="product.template">
+        <field name="name">Lightweight Running Shoes</field>
+        <field name="type">consu</field>
+        <field name="list_price">89.00</field>
+        <field name="standard_price">45.00</field>
+        <field name="is_published" eval="True"/>
+        <field name="website_sequence">40</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_fashion')])]"/>
+        <field name="description_ecommerce" type="html">
+            <p>Breathable mesh upper and a cushioned sole for daily runs.</p>
+        </field>
+    </record>
+
+    <!-- Home & Kitchen -->
+    <record id="product_espresso_machine" model="product.template">
+        <field name="name">Espresso Machine</field>
+        <field name="type">consu</field>
+        <field name="list_price">459.00</field>
+        <field name="standard_price">260.00</field>
+        <field name="is_published" eval="True"/>
+        <field name="is_fathy_pick" eval="True"/>
+        <field name="website_sequence">50</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_home')])]"/>
+        <field name="description_ecommerce" type="html">
+            <p>15-bar pump espresso machine with a steam wand for milk froth.</p>
+        </field>
+    </record>
+    <record id="product_chef_knife" model="product.template">
+        <field name="name">Chef's Knife 20 cm</field>
+        <field name="type">consu</field>
+        <field name="list_price">65.00</field>
+        <field name="standard_price">30.00</field>
+        <field name="is_published" eval="True"/>
+        <field name="website_sequence">60</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_home')])]"/>
+        <field name="description_ecommerce" type="html">
+            <p>Forged stainless-steel blade, balanced for everyday cooking.</p>
+        </field>
+    </record>
+</odoo>

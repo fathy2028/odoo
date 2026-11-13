@@ -30,7 +30,7 @@ services:
       DB_USER: ${DB_USER:-odoo}
       DB_PASSWORD: ${DB_PASSWORD:-odoo}
       ODOO_DB: ${ODOO_DB:-ecom}
-      ODOO_INIT_MODULES: ${ODOO_INIT_MODULES:-website_sale}
+      ODOO_INIT_MODULES: ${ODOO_INIT_MODULES:-website_sale,fathy}
       ODOO_WITH_DEMO: ${ODOO_WITH_DEMO:-true}
     ports:
       - "${ODOO_PORT:-8069}:8069"

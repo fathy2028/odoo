@@ -38,7 +38,7 @@ same defaults.
 | `ODOO_PORT` | `8069` | Host port for the web interface |
 | `ODOO_GEVENT_PORT` | `8072` | Host port for websockets (live chat) |
 | `ODOO_DB` | `ecom` | Database prepared on startup (empty = skip) |
-| `ODOO_INIT_MODULES` | `website_sale` | Modules installed if missing |
+| `ODOO_INIT_MODULES` | `website_sale,fathy` | Modules installed if missing |
 | `ODOO_WITH_DEMO` | `true` | Load demo data |
 
 Server options live in `config/odoo.conf`. The database settings there are
@@ -52,7 +52,7 @@ docker compose logs -f odoo                               # follow the logs
 docker compose down                                       # stop, keep the data
 docker compose down -v                                    # stop and delete all data
 docker compose restart odoo                               # apply config/odoo.conf changes
-docker compose run --rm odoo module upgrade -d ecom my_module# upgrade a module
+docker compose run --rm odoo module upgrade -d ecom fathy # upgrade a module
 docker compose run --rm odoo shell -d ecom                # Odoo Python shell
 docker compose exec db psql -U odoo -d ecom               # SQL prompt
 ```

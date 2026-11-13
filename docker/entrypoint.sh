@@ -11,11 +11,11 @@
 #                               and loads demo data (module force-demo) if wanted but not loaded yet
 #  4. Runs odoo-bin with the given arguments (the web server by default), e.g.:
 #       docker compose run --rm odoo shell -d ecom
-#       docker compose run --rm odoo module upgrade -d ecom my_module
+#       docker compose run --rm odoo module upgrade -d ecom fathy
 set -e
 
 : "${DB_HOST:=db}" "${DB_PORT:=5432}" "${DB_USER:=odoo}" "${DB_PASSWORD:=odoo}"
-: "${ODOO_DB:=}" "${ODOO_INIT_MODULES:=website_sale}" "${ODOO_WITH_DEMO:=false}"
+: "${ODOO_DB:=}" "${ODOO_INIT_MODULES:=website_sale,fathy}" "${ODOO_WITH_DEMO:=false}"
 : "${ODOO_RC:=/etc/odoo/runtime.conf}"
 export DB_HOST DB_PORT DB_USER DB_PASSWORD ODOO_RC
 export PGPASSWORD="$DB_PASSWORD"

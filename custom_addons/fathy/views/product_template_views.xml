@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view_fathy" model="ir.ui.view">
+        <field name="name">product.template.form.fathy</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+                <field name="is_fathy_pick"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_search_view_fathy" model="ir.ui.view">
+        <field name="name">product.template.search.fathy</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Fathy's Picks" name="fathy_picks" domain="[('is_fathy_pick', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
