@@ -1,0 +1,15 @@
+# Keep the build context small: git history alone is ~226 MB
+.git
+.github
+doc
+debian
+setup
+**/__pycache__
+**/*.pyc
+**/node_modules
+
+# Local secrets and Docker tooling itself
+.env
+docker-compose*.yml
+Dockerfile
+.dockerignore
